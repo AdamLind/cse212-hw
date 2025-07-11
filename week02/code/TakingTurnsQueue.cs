@@ -45,7 +45,11 @@ public class TakingTurnsQueue
                 person.Turns -= 1;
                 _people.Enqueue(person);
             }
-
+            else if (person.Turns <= 0)
+            {
+                // If turns is 0 or less, they stay in the queue forever
+                _people.Enqueue(person);
+            }
             return person;
         }
     }
